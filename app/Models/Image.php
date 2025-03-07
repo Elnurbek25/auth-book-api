@@ -30,14 +30,7 @@ class Image extends Model
     }
     public function url(): Attribute
     {
-        return Attribute::make(fn(): string => URL::to('storage/' . $this->path));
+        return Attribute::make(fn(): string => URL::to('app/public/' . $this->path));
     }
-    // public function imagrUrl()
-    // {
-    //     return URL::to('storage/' . $this->path);
-    // }
-    // public function url()
-    // {
-    //     return asset('storage/' . $this->attributes['url']);
-    // }
+    
 }
