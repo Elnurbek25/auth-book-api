@@ -9,16 +9,16 @@ class Book extends Model
 {
     use HasFactory, Notifiable;
     protected $fillable = [
-        'name',
+        'title',
         'description',
         'author_id'
     ];
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->morphMany(Image::class, 'imageable');
     }
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
